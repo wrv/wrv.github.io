@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>@font-face {
+  font-family: octicons-anchor;
+  src: url(https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/font/octicons.woff) format('woff');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+    color:#333;
+    background:#fff;
+}
+
+body .markdown-body {
+    padding: 45px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    word-wrap: break-word;
+}
+
+pre {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body input {
+  font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.markdown-body a {
+  color: #4078c0;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body .select::-ms-expand {
+  opacity: 0;
+}
+
+.markdown-body .octicon {
+  font: normal normal normal 16px/1 octicons-anchor;
+  display: inline-block;
+  text-decoration: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+  content: '\f05c';
+}
+
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body .anchor {
+  display: inline-block;
+  padding-right: 2px;
+  margin-left: -18px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #000;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h1 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h3 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h5 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body h6 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: content-box;
+  background-color: #fff;
+}
+
+.markdown-body code {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .pl-c {
+  color: #969896;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #333;
+}
+
+.markdown-body .pl-ent {
+  color: #63a35c;
+}
+
+.markdown-body .pl-k {
+  color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #183691;
+}
+
+.markdown-body .pl-v {
+  color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+  color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+  background-color: #b52a1d;
+  color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+  color: #63a35c;
+  font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+  color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  color: #1d3e81;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+  color: #008080;
+}
+
+.markdown-body .pl-mi {
+  color: #333;
+  font-style: italic;
+}
+
+.markdown-body .pl-mb {
+  color: #333;
+  font-weight: bold;
+}
+
+.markdown-body .pl-md {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+  color: #795da3;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+  color: #1d3e81;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .plan-price-unit {
+  color: #767676;
+  font-weight: normal;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 0.35em 0.25em -1.6em;
+  vertical-align: middle;
+}
+
+.markdown-body .plan-choice {
+  padding: 15px;
+  padding-left: 40px;
+  display: block;
+  border: 1px solid #e0e0e0;
+  position: relative;
+  font-weight: normal;
+  background-color: #fafafa;
+}
+
+.markdown-body .plan-choice.open {
+  background-color: #fff;
+}
+
+.markdown-body .plan-choice.open .plan-choice-seat-breakdown {
+  display: block;
+}
+
+.markdown-body .plan-choice-free {
+  border-radius: 3px 3px 0 0;
+}
+
+.markdown-body .plan-choice-paid {
+  border-radius: 0 0 3px 3px;
+  border-top: 0;
+  margin-bottom: 20px;
+}
+
+.markdown-body .plan-choice-radio {
+  position: absolute;
+  left: 15px;
+  top: 18px;
+}
+
+.markdown-body .plan-choice-exp {
+  color: #999;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.markdown-body .plan-choice-seat-breakdown {
+  margin-top: 10px;
+  display: none;
+}
+
+.markdown-body :checked+.radio-label {
+  z-index: 1;
+  position: relative;
+  border-color: #4078c0;
+}
+
+@media print {
+  body .markdown-body {
+    padding: 0;
+    border: none;
+  }
+}
+</style><title>rwc19</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-rwc-19-write-up" class="anchor" href="#rwc-19-write-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>RWC 19 Write up</h1>
+<p>This year Real World Crypto was held in San Jose, CA, a little closer to me than the previous year in Zurich.</p>
+<p>Arriving into San Jose it was raining, which was surprising to me since I've always heard that
+it never rains in the bay area. It seems that I came at the time of year where the rain
+is at its worst and I'll miss most of the sunny beauty that comes from the bay area.</p>
+<p>Regardless, the crypto was all the brightness I needed for those couple of days.
+Here are a couple notes on some of the talks I attended.</p>
+<h2>
+<a id="user-content-interesting-trends" class="anchor" href="#interesting-trends" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Interesting Trends</h2>
+<ul>
+<li>A relaxation of forward secrecy for usability purposes (SNAP, Keybase)</li>
+<li>Verification is becoming practical (Noise Explorer, other verif talks)</li>
+<li>Authenticated Data Structures are being looked at in the real world.
+ For example, MLS is aiming to use something like that for identity 
+management, and Keybase is using it for their group messaging tool.</li>
+</ul>
+<h2>
+<a id="user-content-tuesday-january-8th-2019" class="anchor" href="#tuesday-january-8th-2019" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tuesday January 8th, 2019</h2>
+<p>I arrive into town and meet up with some other crypto folks I'm staying with. It turns out
+that there's an event that evening organized on the cryptocatz Slack, which many cryptographers
+are on. Got to see some familiar faces, meet new people, and make jokes only cryptographers
+would understand.</p>
+<h2>
+<a id="user-content-wednesday-january-9th-2019" class="anchor" href="#wednesday-january-9th-2019" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Wednesday January 9th, 2019</h2>
+<p>First day weather was cool and a little cloudy. It's been awhile since I've been north in the winter
+so I forgot how late it takes for the sun to come out. I woke up bright and early (thanks to time zone differences)
+but I'm excited to learn so much, see old friends, and meet cool people!</p>
+<h2>
+<a id="user-content-welcome-remarks" class="anchor" href="#welcome-remarks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome Remarks</h2>
+<p>Nigel Smart started the party.</p>
+<ul>
+<li>We're at Real World Crypto, not Rugby World Cup.</li>
+<li>60 submissions and accepted 22.</li>
+<li>Try to keep it cheap and cheerful as possible.</li>
+<li>600+ attendees.
+<ul>
+<li>626 registrants</li>
+<li>502 regular, 124 student</li>
+<li>330 new members of the IACR</li>
+</ul>
+</li>
+<li>Upcoming RWCs:
+<ul>
+<li>2020 will be in New York</li>
+<li>2021 Amsterdam, The Netherlands</li>
+<li>2022+ looking for venues (maybe Austin?)</li>
+</ul>
+</li>
+</ul>
+<h2>
+<a id="user-content-messaging-security" class="anchor" href="#messaging-security" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Messaging Security</h2>
+<h3>
+<a id="user-content-messaging-layer-security-the-beginning" class="anchor" href="#messaging-layer-security-the-beginning" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Messaging Layer Security: the beginning</h3>
+<h4>
+<a id="user-content-richard-barnes" class="anchor" href="#richard-barnes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Richard Barnes</h4>
+<p>Project URL: <a href="https://messaginglayersecurity.rocks/" rel="nofollow">https://messaginglayersecurity.rocks/</a></p>
+<p>The purpose of this talk is to invite more folks to work on messaging security and share the current state of the art.</p>
+<p>MLS Goal: Decoherence of secure messaging apps.</p>
+<p>Top-level requirements for an async group messaging security protocol</p>
+<ul>
+<li>async: no two participants online at the same time</li>
+<li>group: support large, dynamic groups</li>
+<li>messaging security - modern security protocols (FS/ PCS)
+<ul>
+<li>FS: forward security</li>
+<li>PCS: post-compromise security</li>
+</ul>
+</li>
+</ul>
+<p>Want code that is reusable in multiple contexts and interoperable between different implementations.</p>
+<p>Following the pattern of TLS 1.3 where a spec is written and let 
+others build implementations. Can have verification of the spec.</p>
+<p>Clients connect to a delivery service. Also split out authentication service. Could run delivery service with Vuvuzela.</p>
+<p>MLS: Messaging layer security
+TLS vs MLS:</p>
+<ul>
+<li>two parties vs multiple parties</li>
+<li>long lived sessions in MLS</li>
+<li>more issues if individual party is compromised</li>
+</ul>
+<p>FS/PCS with sublinear scaling with parties.</p>
+<p>Work on this has been going on since 2015. A recent relevant paper: <a href="https://ia.cr/2017/666" rel="nofollow">https://ia.cr/2017/666</a> .</p>
+<h5>
+<a id="user-content-protocol" class="anchor" href="#protocol" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Protocol</h5>
+<p>Tree encapsulates state (to get log complexity). Derive from this 
+tree an epoch secret. Application secret derived from epoch secret. 
+Epoch secret used to generate protocol messages when then update the 
+tree.</p>
+<p>Tree invariant: the private key for an intermediate node is known to a member iff the node is an ancestor of the member's leaf.</p>
+<p>Trees of keys. Left-balanced binary tree of DH key pairs.</p>
+<p>1st try: Asynchronous Ratchet Tree. Failed for dynamic trees
+2nd try: TreeKEM - Children have the hash of all parent nodes.</p>
+<p>Built the tree and now authentication.
+Security proof is work in progress. Want Tamarin proofs.</p>
+<p>Tradeoffs:</p>
+<ul>
+<li>shared group state leads to strict message ordering</li>
+<li>TreeKEM leads to linear size state in clients</li>
+</ul>
+<p>MLS: Help wanted - reach out!</p>
+<h3>
+<a id="user-content-fast-message-franking-from-invisible-salamanders-to-encryptment" class="anchor" href="#fast-message-franking-from-invisible-salamanders-to-encryptment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fast Message Franking: From Invisible Salamanders to Encryptment</h3>
+<h4>
+<a id="user-content-joanne-woodage" class="anchor" href="#joanne-woodage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Joanne Woodage</h4>
+<p>Message franking: reporting messages to service providers and security that they actually said the message.</p>
+<p>Message franking comes from the term "speaking frankly"
+and combines an encryption scheme with a verification algorithm. Needs a binding to a tag</p>
+<p>FB: add an HMAC to their messages which can be used to report. Takes 3 passes, so slow.</p>
+<p>FB used different technique for attachments though: AES-GCM for message encryption which turns out to not be robust
+See: ABN10, FLQP13, FOR17</p>
+<p>How to do it correctly:</p>
+<ul>
+<li>hash functions</li>
+<li>hash function chaining scheme with a Merkle-Damgard construction</li>
+</ul>
+<p>Q: Could you do fine-grained reporting of messages? This way only the offending part is revealed.</p>
+<ul>
+<li>Currently work-in-progress.</li>
+<li>My idea: could be doable with functional encryption.</li>
+</ul>
+<h3>
+<a id="user-content-catch-me-if-you-can-an-account-based-end-to-end-encryption-for-11-snaps" class="anchor" href="#catch-me-if-you-can-an-account-based-end-to-end-encryption-for-11-snaps" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Catch Me if You Can: An Account Based End-to-end Encryption for 1/1 Snaps</h3>
+<h4>
+<a id="user-content-subhash-sankuratripati" class="anchor" href="#subhash-sankuratripati" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Subhash Sankuratripati</h4>
+<p>186 Million users of Snapchat
+Snapchat offers:</p>
+<ul>
+<li>easy logout</li>
+<li>couple logout w/ single session restrictions</li>
+</ul>
+<p>Usage requirements</p>
+<ul>
+<li>One device, many users</li>
+<li>One user, multiple devices</li>
+</ul>
+<p>10% of all logins are from new devices
+axolotl-like protocol has a 2% retry rate, which is unacceptable.</p>
+<p>Account Based E2EE</p>
+<ul>
+<li>post logout secure DB (2/2 secret shared with device and Snapchat server)</li>
+<li>DBEK: database encryption key</li>
+</ul>
+<p>Forward security is not in mind because they want users to load up all their content on a new device.</p>
+<p>Snapchat can see the # of devices people are logged into (also users with
+debug logs)
+Hiding adding a new device means it's easy for Snapchat to be compelled to include
+malicious keys <a href="https://www.lawfareblog.com/principles-more-informed-exceptional-access-debate" rel="nofollow">GCHQ approach</a>.</p>
+<p>Google blog post in July 2018 about E2EE push notifications</p>
+<p>Snapchat sends Billions of 1/1 Snaps per day.</p>
+<h2>
+<a id="user-content-cryptography-and-politics" class="anchor" href="#cryptography-and-politics" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cryptography and Politics</h2>
+<h3>
+<a id="user-content-the-hill-we-must-die-on-cryptographers-and-congress" class="anchor" href="#the-hill-we-must-die-on-cryptographers-and-congress" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Hill We Must Die On: Cryptographers and Congress</h3>
+<h4>
+<a id="user-content-shaanan-conhey-and-gabriel-kaptchuk-joint" class="anchor" href="#shaanan-conhey-and-gabriel-kaptchuk-joint" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Shaanan Conhey and Gabriel Kaptchuk (joint)</h4>
+<p>The speakers spent a summer interning with Senator Ron Wyden representing the academic crypto community.</p>
+<p>Lessons.</p>
+<ol>
+<li>
+<p>crypto is everyone</p>
+</li>
+<li>
+<p>talk is cheap, but powerful (politics is all performance)</p>
+</li>
+<li>
+<p>Learn to talk like the other kind of Nerd</p>
+<ul>
+<li>Tell stories</li>
+<li>politicians valorize and demonize</li>
+<li>master the art of the "concrete ask" (e.g. Can you get this 
+department to do this specific thing? vs Can you make sure there are no 
+backdoors in crypto?)</li>
+<li>When calling, ask for the staffer that works on the issue area. Can meet with politicians but be sure to have story.</li>
+<li>Learn how to write congressional letters</li>
+</ul>
+</li>
+<li>
+<p>Don't ignore incremental problems</p>
+</li>
+</ol>
+<h3>
+<a id="user-content-cryptography-and-elections-threat-or-menace" class="anchor" href="#cryptography-and-elections-threat-or-menace" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cryptography and Elections: Threat or Menace?</h3>
+<h4>
+<a id="user-content-matt-blaze" class="anchor" href="#matt-blaze" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Matt Blaze</h4>
+<p>Tech and elections. Voting mechanisms matter.
+A challenge with voting is that the requirements contradict each other:</p>
+<ul>
+<li>we need secrecy AND transparency</li>
+<li>No "do-overs" allowed -&gt; instead we audit. Mere suspicion of irregularities is insufficient</li>
+</ul>
+<p>Election integrity: more spent on campaigns vs conducting elections
+5000 political entities that control elections</p>
+<p>2000 US presidential election</p>
+<ul>
+<li>Hanging chad</li>
+<li>DRE: computers w/ voting apps. Computers are flawed</li>
+</ul>
+<p>What to do:</p>
+<ul>
+<li>Short term: more audits and careful procedural control</li>
+<li>Long term: careful design for security as basis</li>
+</ul>
+<p>To learn more, look at the <a href="http://sites.nationalacademies.org/pga/stl/voting/index.htm" rel="nofollow">National Academies voting study</a> to fully understand problem space.
+Where to start in this space: identify the problems; sign up to be a poll worker.</p>
+<h2>
+<a id="user-content-levchin-prize-ceremony" class="anchor" href="#levchin-prize-ceremony" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Levchin Prize Ceremony</h2>
+<ul>
+<li>Mihir Bellare: ROM. Spoke about what is considered "real world". How to make the world a better place? Is performance necessary?</li>
+<li>Eric Rescorla: standardization of TLS 1.3. Work on Standards and with people.</li>
+</ul>
+<h2>
+<a id="user-content-secure-communications" class="anchor" href="#secure-communications" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Secure Communications</h2>
+<h3>
+<a id="user-content-noise-explorer-fully-automated-modeling-and-verification-for-arbitrary-noise-protocols" class="anchor" href="#noise-explorer-fully-automated-modeling-and-verification-for-arbitrary-noise-protocols" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Noise Explorer: Fully Automated Modeling and Verification for Arbitrary Noise Protocols</h3>
+<h4>
+<a id="user-content-nadim-kobeissi" class="anchor" href="#nadim-kobeissi" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Nadim Kobeissi</h4>
+<p>Noise is a framework for protocols that follow certain rules.
+Security Goals in Noise specification</p>
+<ul>
+<li>Grade based system
+<ul>
+<li>Authentication grades</li>
+<li>Confidentiality grades</li>
+</ul>
+</li>
+</ul>
+<p>Noise explorer: spec validity
+model for formal verification</p>
+<ul>
+<li>Generates implementations</li>
+</ul>
+<p>Automated verification w/ ProVerif</p>
+<p><a href="https://noiseexplorer.com/" rel="nofollow">https://noiseexplorer.com</a></p>
+<p>Check out the <a href="https://www.cryptologie.net/article/349/the-noise-protocol-framework/" rel="nofollow">David Wong noise protocol blog post</a> to understand more.</p>
+<h2>
+<a id="user-content-passwords" class="anchor" href="#passwords" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Passwords</h2>
+<h3>
+<a id="user-content-opaque-strong-client-server-password-authentication-for-standardization" class="anchor" href="#opaque-strong-client-server-password-authentication-for-standardization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>OPAQUE: Strong client-server password authentication for standardization</h3>
+<h4>
+<a id="user-content-hugo-krawczyk" class="anchor" href="#hugo-krawczyk" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hugo Krawczyk</h4>
+<p>Passwords
+Unavoidable attacks</p>
+<ul>
+<li>Guessing</li>
+<li>offline dictionary search</li>
+</ul>
+<p>Avoidable</p>
+<ul>
+<li>plaintext of password</li>
+<li>Precomputation</li>
+</ul>
+<h5>
+<a id="user-content-apake" class="anchor" href="#apake" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>aPAKE</h5>
+<p>Where can passwords provide TLS
+Building OPAQUE (aPAKE): OPRF + KE</p>
+<p><a href="https://bit.ly/SPHINX-paper" rel="nofollow">https://bit.ly/SPHINX-paper</a>
+<a href="https://bit.ly/OPAQUE-paper" rel="nofollow">https://bit.ly/OPAQUE-paper</a></p>
+<p>My idea: build an aPAKE client in SGX or with VC</p>
+<h3>
+<a id="user-content-how-to-not-share-a-password-privacy-preserving-protocols-for-finding-heavy-hitters-with-adversarial-behavior" class="anchor" href="#how-to-not-share-a-password-privacy-preserving-protocols-for-finding-heavy-hitters-with-adversarial-behavior" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to (not) Share a Password: Privacy preserving protocols for finding heavy hitters with adversarial behavior</h3>
+<h4>
+<a id="user-content-eyal-ronen" class="anchor" href="#eyal-ronen" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Eyal Ronen</h4>
+<p>MIT CTSS 1961</p>
+<ul>
+<li>California: "Security of connected devices" "publishing a blacklist is like publishing a code vulnerability"</li>
+</ul>
+<p>Password game: use differential privacy (DP) to protect password lists</p>
+<p>[BNSTS17]
+QR based technique for MPC
+DP through MPC for password distribution analysis
+Want to remove more popular passwords. Useful for statistics in heavy-hitters problem.
+<a href="https://ia.cr/2018/003" rel="nofollow">https://ia.cr/2018/003</a>
+<a href="https://eyalro.net/" rel="nofollow">https://eyalro.net</a></p>
+<h2>
+<a id="user-content-crypto-usability" class="anchor" href="#crypto-usability" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Crypto Usability</h2>
+<h3>
+<a id="user-content-darpas-investments-in-real-world-cryptography" class="anchor" href="#darpas-investments-in-real-world-cryptography" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>DARPA's Investments in Real World Cryptography</h3>
+<h4>
+<a id="user-content-joshua-baron-darpa" class="anchor" href="#joshua-baron-darpa" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Joshua Baron (DARPA)</h4>
+<p>Talked about Brandeis and RACE</p>
+<h5>
+<a id="user-content-brandeis" class="anchor" href="#brandeis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Brandeis</h5>
+<p>PE Android
+SCALE-MAMBA
+HelpMe app
+Optimized Schedule Docking</p>
+<h5>
+<a id="user-content-race" class="anchor" href="#race" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>RACE</h5>
+<p>Hidden communications. Packet checks</p>
+<h5>
+<a id="user-content-future" class="anchor" href="#future" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Future</h5>
+<ul>
+<li>ZKPs -&gt; What are the limits</li>
+<li>Consensus</li>
+</ul>
+<h3>
+<a id="user-content-state-level-secrets-when-theory-meets-practice-for-journalists-working-with-encrypted-documents" class="anchor" href="#state-level-secrets-when-theory-meets-practice-for-journalists-working-with-encrypted-documents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>State-Level Secrets: When Theory Meets Practice for Journalists Working with Encrypted Documents</h3>
+<h4>
+<a id="user-content-bailey-kacsmar-and-chelsea-h-komlo-joint" class="anchor" href="#bailey-kacsmar-and-chelsea-h-komlo-joint" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bailey Kacsmar and Chelsea H. Komlo (joint)</h4>
+<p>Threshold schemes and journalism
+Freedom of press: Sunder
+C.Ellison: Ceremony design and analysis</p>
+<p>Secret sharing systems are not yet ready for real world usage because they don't address all usability issues.</p>
+<h3>
+<a id="user-content-understanding-security-mistakes-developers-make-qualitative-analysis-from-build-it-break-it-fix-it" class="anchor" href="#understanding-security-mistakes-developers-make-qualitative-analysis-from-build-it-break-it-fix-it" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Understanding security mistakes developers make: Qualitative analysis from Build It, Break It, Fix It</h3>
+<h4>
+<a id="user-content-michelle-mazurek-university-of-maryland" class="anchor" href="#michelle-mazurek-university-of-maryland" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Michelle Mazurek (University of Maryland)</h4>
+<p>Build it/break it/fix it
+How to make secure programming easier
+3 problems</p>
+<ol>
+<li>log append</li>
+<li>bank transaction</li>
+<li>secure server</li>
+</ol>
+<p>Survey to understand developer issues: <a href="https://ter.ps/SecPros" rel="nofollow">https://ter.ps/SecPros</a></p>
+<h2>
+<a id="user-content-thursday-january-10th-2019" class="anchor" href="#thursday-january-10th-2019" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Thursday January 10th, 2019</h2>
+<h2>
+<a id="user-content-enterprise-cryptography" class="anchor" href="#enterprise-cryptography" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Enterprise Cryptography</h2>
+<h3>
+<a id="user-content-applying-proxy-re-encryption-to-payments" class="anchor" href="#applying-proxy-re-encryption-to-payments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Applying Proxy-Re-Encryption to Payments</h3>
+<h4>
+<a id="user-content-sivanarayana-gaddam" class="anchor" href="#sivanarayana-gaddam" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sivanarayana Gaddam</h4>
+<p>This turned out to be the most grilled talk.</p>
+<p>Visa: 61.4BN credit transactions, 99Bn debit transactions in 2018</p>
+<p>All elements use HSMs</p>
+<p>Consumer Bank to Merchant Bank (use some relay)
+Map Auth Root
+in HSMs w/ PIN verif</p>
+<p>Uses BBS98</p>
+<p>BBS-secp256k1</p>
+<p>They don't worry about CCA security (CPA is enough)</p>
+<p>Other use case:
+Cart Abandonments: people on sketchy shops do not trust the company to provide their CC info.</p>
+<p>Developed a tool called AuthChain which uses (PRE + SGX + Blockchain)</p>
+<h3>
+<a id="user-content-managing-keys-and-teams-with-keybaseio" class="anchor" href="#managing-keys-and-teams-with-keybaseio" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Managing Keys and Teams with Keybase.io</h3>
+<h4>
+<a id="user-content-max-krohn-keybase" class="anchor" href="#max-krohn-keybase" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Max Krohn (Keybase)</h4>
+<p>Federated management; decentralization
+Slack case
+Forward secrecy and is not necessary but want post-compromise security</p>
+<p>Every team has a random shared symmetric key and renews when users removed, or team member revokes device</p>
+<p>Uses a global Merkle tree for all users and their devices.</p>
+<p>Track Keybase state.</p>
+<p>Per user keys. If one device is hacked and revokes all others, then you're screwed lol</p>
+<p>This is an ADS in production!</p>
+<h2>
+<a id="user-content-cryptographic-implementation" class="anchor" href="#cryptographic-implementation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cryptographic Implementation</h2>
+<h3>
+<a id="user-content-practicing-the-art-and-science-of-side-channel-and-fault-attacks" class="anchor" href="#practicing-the-art-and-science-of-side-channel-and-fault-attacks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Practicing the art and science of side channel and fault attacks</h3>
+<h4>
+<a id="user-content-jasper-van-woudenberg-riscure" class="anchor" href="#jasper-van-woudenberg-riscure" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Jasper van Woudenberg (Riscure)</h4>
+<p>Automating side channel attacks.</p>
+<p>Most attacks are trying to get access to JTAG or trying to break the secure boot.</p>
+<p>VC Glitcher</p>
+<p>More software scalable fault injection (FI) attacks, like CLKscrew
+Open research questions:</p>
+<ul>
+<li>What exactly happens to a circuit when faulted, to inform countermeasures</li>
+<li>How exploitable are T-spikes in practice?</li>
+<li>What is an objective measure that represents device security?</li>
+<li>Automatic countermeasure creation</li>
+</ul>
+<p>Deep Learning for SCA:</p>
+<ul>
+<li>Breaking AES with first-order masking with NN</li>
+<li>NN still requires humans to tune the networks</li>
+</ul>
+<p>Rarely perform 2nd order attacks, because sample coming is infeasible
+ due to noise and limited time. How to find those samples efficiently?</p>
+<p>Correlation power analysis: cheap to calculate and applicable to many devices.</p>
+<p>TVLA: T-testing</p>
+<h3>
+<a id="user-content-tink-a-cryptographic-library" class="anchor" href="#tink-a-cryptographic-library" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tink: a cryptographic library</h3>
+<h4>
+<a id="user-content-bartosz-przydatek-google" class="anchor" href="#bartosz-przydatek-google" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bartosz Przydatek (Google)</h4>
+<p>OpenSSL APIs are complex
+C++ Keyczar</p>
+<p>Tink Design Goals</p>
+<ul>
+<li>hard to misuse API</li>
+<li>Functionality "visible" in code</li>
+<li>Control over employed cryptographic schemes</li>
+<li>Easy to add new functionalities, schemes, formats</li>
+<li>support for local customizations</li>
+</ul>
+<p>My question: what is considered a good library that we should try to 
+model? There's all these talks about crypto APIs, but what is maybe some
+ non-crypto library that's doing it right? What are some good mis-use 
+resistant libraries? I understand there are some under-the-hood issues 
+that make it more sensitive to get crypto right than maybe some other 
+things, but the API is critical.</p>
+<p>Uniform handling of external keys</p>
+<p>Can forbid creation of new keys of deprecated schemes</p>
+<p>With this API for simplicity, could we implement APIs for other ZK 
+schemes? Take their ideas of simplicity and push it onto other schemes.</p>
+<h2>
+<a id="user-content-cryptography-standardization" class="anchor" href="#cryptography-standardization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cryptography Standardization</h2>
+<h3>
+<a id="user-content-announcing-the-2nd-round-candidates-for-the-nist-pqc-competition" class="anchor" href="#announcing-the-2nd-round-candidates-for-the-nist-pqc-competition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Announcing the 2nd Round Candidates for the NIST PQC “Competition”</h3>
+<h4>
+<a id="user-content-dustin-moody-nist" class="anchor" href="#dustin-moody-nist" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dustin Moody (NIST)</h4>
+<p>Government was shutdown - no speaker :(</p>
+<h3>
+<a id="user-content-so-how-hard-is-solving-lwe-anyway" class="anchor" href="#so-how-hard-is-solving-lwe-anyway" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>So how hard is solving LWE anyway?</h3>
+<h4>
+<a id="user-content-martin-albrecht-royal-holloway-university-of-london" class="anchor" href="#martin-albrecht-royal-holloway-university-of-london" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Martin Albrecht (Royal Holloway, University of London)</h4>
+<p>Sage math for trying to break LWE.</p>
+<p>Slope of length of Gram-Schmidt vectors by vector length is goal of breaking LWE.</p>
+<p>LLL attack.</p>
+<p>Strong lattice reduction: BKZ algorithm</p>
+<p>Two types of attacks: Sieving &amp; Enumeration</p>
+<p>SVP oracle</p>
+<p>Block size -&gt; dimension of lattices.</p>
+<p>G6K: a python and C++ framework for experiment with sieving algorithms</p>
+<p>Open questions:</p>
+<ul>
+<li>G6K is not parallel (how does exponential memory scale?)</li>
+<li>No dedicated hardware</li>
+<li>Did not build the asymptotically fastest algorithms</li>
+</ul>
+<p>Quantum Estimates
+Sieving: Grover's algorithm
+Enumeration: Apply Montanaro's quantum backtracking algorithm for quadratic speed-up</p>
+<p>A word on lower bounds:</p>
+<ul>
+<li>explicit lower bounds. Polynomial factors hidden in o(\beta)</li>
+<li>hidden cost of Grover iteration</li>
+<li>new lower bound does not imply they found an algorithm that is more performant</li>
+</ul>
+<p>Open Questions</p>
+<ul>
+<li>Many submissions use small and sparse secrets where combinatorial techniques apply. Cost of these not fully understood.</li>
+<li>Swept under the rug algebraic structure. It's unclear the exploitation of algebraic structure.</li>
+<li>Effect of decryption failures based on LWE not fully understood. Some submissions completely eliminate these.</li>
+</ul>
+<h3>
+<a id="user-content-an-account-on-the-isoiec-standardization-of-simon-and-speck" class="anchor" href="#an-account-on-the-isoiec-standardization-of-simon-and-speck" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>An Account on the ISO/IEC Standardization of Simon and Speck</h3>
+<h4>
+<a id="user-content-atul-luykx" class="anchor" href="#atul-luykx" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Atul Luykx</h4>
+<p>Why standardize at ISO? For international trade reasons - WTO follows these standards.</p>
+<p>How does the ISO standardization work.
+ISO/IEC JTC 1 SC 27 WG 2</p>
+<p>ISO/IEC Process</p>
+<ol>
+<li>Registration through national bodies</li>
+<li>Two layered consensus: expert + national bodies</li>
+<li>Consensus = non sustained opposition (not the same as unanimity)</li>
+<li>Decisions made at physical meetings.</li>
+</ol>
+<p>Observations</p>
+<ul>
+<li>criteria ill defined</li>
+<li>significant amount of time</li>
+<li>Burden of proof is on dissenter</li>
+</ul>
+<p>Difficulty</p>
+<ul>
+<li>3.5 years from start to finish</li>
+</ul>
+<p>Tech discussions</p>
+<ul>
+<li>Cryptanalytic attacks</li>
+<li>General attacks</li>
+</ul>
+<p>Sweet32: birthday bound attack</p>
+<p>"permutation-based crypto"</p>
+<p>Summary</p>
+<ul>
+<li>Erosion of trust of NSA</li>
+<li>ISO: lack of pressing needs</li>
+<li>Takes time to rebuild trust</li>
+</ul>
+<p>Someone in the audience who works at the NSA (Robert Campbell (sp?)) said that Simon and Speck were attempts to rebuild trust
+and some of their clients wanted the ISO standardization which is why they were pushing through it. They believe
+in the ARX cipher and will keep working with it, even if others are skeptical.</p>
+<h2>
+<a id="user-content-cryptographic-hardware" class="anchor" href="#cryptographic-hardware" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cryptographic Hardware</h2>
+<h3>
+<a id="user-content-fast-furious-and-insecure-passive-keyless-entry-and-start-systems-in-modern-supercars" class="anchor" href="#fast-furious-and-insecure-passive-keyless-entry-and-start-systems-in-modern-supercars" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fast, Furious and Insecure: Passive Keyless Entry and Start Systems in Modern Supercars</h3>
+<h4>
+<a id="user-content-lennert-wouters-imec-cosic-ku-leuven" class="anchor" href="#lennert-wouters-imec-cosic-ku-leuven" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lennert Wouters (imec-COSIC, KU Leuven)</h4>
+<p>One of the coolest talks which involved hacking Teslas!</p>
+<h2>
+<a id="user-content-friday-january-11th-2019" class="anchor" href="#friday-january-11th-2019" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Friday January 11th, 2019</h2>
+<p>Unfortunately I arrived late this day and there was a battle for the outlets, so not very many notes were taken.</p>
+<h2>
+<a id="user-content-formal-verification" class="anchor" href="#formal-verification" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Formal Verification</h2>
+<h3>
+<a id="user-content-verified-vectorized-cryptography-with-less-manual-effort" class="anchor" href="#verified-vectorized-cryptography-with-less-manual-effort" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Verified Vectorized Cryptography (with less manual effort)</h3>
+<h4>
+<a id="user-content-karthikeyan-bhargavan" class="anchor" href="#karthikeyan-bhargavan" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Karthikeyan Bhargavan</h4>
+<p>Usual process for verification:</p>
+<pre><code>Spec -&gt; Pseudocode -&gt; formal spec (Coq, F\*, Cryptol) ---&gt; Verification
+                                                      /
+                       Implementation (C, Rust) -----/
+</code></pre>
+<p>HACL* is a useful tool for this.</p>
+<p>Platform-Specific Implementations -&gt; Hard to verify
+Vectorized implementations are a challenge, so let's verify a SIMD library</p>
+<p>HACSpec: towards verifiable crypto standards</p>
+<ul>
+<li>A language for writing crypto specs by cryptographers</li>
+</ul>
+<p>Relevant related work:</p>
+<ul>
+<li><a href="https://summerschool-croatia.cs.ru.nl/2018/slides/Proving%20Cryptographic%20Implementations%20Secure%20-%20Part%20I.pdf" rel="nofollow">https://summerschool-croatia.cs.ru.nl/2018/slides/Proving%20Cryptographic%20Implementations%20Secure%20-%20Part%20I.pdf</a></li>
+<li><a href="https://summerschool-croatia.cs.ru.nl/2018/slides/Proving%20Cryptographic%20Implementations%20Secure%20-%20Part%202.pdf" rel="nofollow">https://summerschool-croatia.cs.ru.nl/2018/slides/Proving%20Cryptographic%20Implementations%20Secure%20-%20Part%202.pdf</a></li>
+</ul>
+<h2>
+<a id="user-content-conclusion" class="anchor" href="#conclusion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conclusion</h2>
+<p>Awesome talks with awesome people! Looking forward to next year!</p>
+</article></body></html>

@@ -1,0 +1,163 @@
+#Real World Crypto 2017 
+##Willy Vasquez
+###January 13th, 2017
+
+I attended Real World Crypto at Columbia University in NYC, and it was an awesome three days of talks with topics from quantum computing to multi-party computation (MPC) to how as a reverse engineer I am affected by the Digital Millenium Copyright Act (DMCA). There was a great mix of industry and academia and some of the biggest stars in cryptography attended. Since this was my first cryptography conference, I may have been a little over excited, but it was a great experience and would recommend for folks to attend, if not for the talks but the opportunity to network with experts. 
+
+Overall, I learned that OpenSSL is the most popular real world crypto instantiation as many people are working to improve it, replace it, or implement their own crypto into it, and that Google has a HUGE presence in crypto, experimenting with all types of things: running MPC with their customers, testing out LWE and RLWE implementations in OpenSSL, replacing OpenSSL with their own BoringSSL, and working to achieve "quantum supremacy." 
+
+Below I've detailed talks that I found to be my favorite. I've chosen these talks because they either introduced me to a new topic, were well presented, or gave me a view of what real world crypto actually is.
+
+Note that if you want to go deeper into the talks than what I've detailed, some of the slides located at https://www.realworldcrypto.com/rwc2017/program and videos of the talks should be posted up later.
+
+##Favorite Talks
+###Day 1: NSEC 5
+- Automated denial of existence of certain domain names
+- First protocol may allow for zone enumeration
+	- Don't want to reveal all DNS names
+	- NSEC3 hashes name but can lead offline attack
+	- There exists NSEC3 with online signing, but requires DNS server needs to do an online signature
+- Created NSEC 5
+	- Replaces hash function with a verifiable random function (VRF)
+	- First draft: NSEC5-RSA
+	- NSEC5-ECC --> Franklin Zhang 13 is a VRF
+	- Implemented in KnotDNS, UnboundDNS
+- Writing internet draft for review
+
+Why favorite:
+
+- Well-presented and built up the problem of DNS zone enumeration in an understandable way
+- Used modern ideas in cryptography (VRF) to solve the problem
+
+###Day 1: White box cryptography
+- Idea: protect crypto when adversary can see everything going on.
+- Host Card Emulation: replace secure elements with hardware (think Apple Pay)
+- Visa & Mastercard support HCE
+- How to protect AES/DES
+	- Hide memory access and execution access
+- Theoretically impossible?
+	- No: Trivial 2^92 TB lookup table for a fixed key
+- Generic idea: transform cipher into a lookup table
+	- Also want binary glued to an environment to prevent running on other systems
+- Look at EuroCrypt 2016 talk: Engineering Code Obfuscation
+- Automated techniques used in CHES Challenge
+- Also, FSE 2016: White-box Cryptography in the Grey Box
+- See 9x4 pattern: AES
+- See 15x1 pattern: DES
+- Idea: Take software tools, use whitebox attacks, or put on hardware and use differential power analysis
+- Tools: https://github.com/SideChannelMarvels/
+- Interesting question: how do you explain moral or philosophical research for white-box?
+	- Answer: It's interesting and there are user level security issues as well
+
+Why favorite:
+- Demonstrated flaws in implementation can lead to secure crypto to be subverted
+- Combination of reverse engineering/program analysis with cryptography
+- Takes an engineering to solve theoretical problems
+
+###Day 2: MPC at Google
+- Academic vs practical
+- Academic view:
+	- generic protocols: GC, OT, LSS, FHE
+	- Malicious security model
+- Models in Practice:
+	- semhihonest is okay
+	- can use the law
+	- privacy more important than correctness
+- Covert model: sometimes good enough for B2B
+- Biggest gap: think *cost* not speed
+- Challenges in practice:
+	- non-public ID
+	- no reliable PKI for consumer devices
+	- Party selection
+	- sybil attacks
+	- consumer devices will fail
+	- more important to abort over malicious security
+	- non-colluding providers? not impossible
+- Uses at Google:
+	- B2B:
+		- set intersection functionality
+		- use paillier: easy to explain and implement
+		- need to convince: managers, lawyers, software engineers
+		- audit mechanism into protocol (think covert model)
+	- Consumer:
+		- training machine learning models
+		- keyboards reveal everything folks have typed
+		- need to protect local privacy
+		- Theory: everyone does LSS --> quadratic on devices
+- Want from theory: formalization okay. FHE with small constants
+- Differential privacy on devices in order to prevent leaking keyboard info. 
+- Interesting functions with set intersection
+- Affine functions from Paillier (ax+b; linear functions are just ax)
+
+Why favorite:
+- Gave a great outline of differences between real world implementations and theoretical implementations as it relates to MPC. Specifically:
+	- Not always true servers won't collude
+	- Quadratic communication complexity isn't really efficient
+	- Often costs outweigh efficiency because resources (network/computation) aren't all used for crypto
+	- Covert model/semi-honest model of security is usually okay
+	- Instead of generic protocols, best to use specialized ones (GC, OT, & FHE vs Paillier)
+- Gave good use cases for industry
+
+###Day 2: Formal Analysis of Signal (Post Compromise Security)
+- Post compromise security: security after an endpoint has been compromised
+	- can achieve this security by sharing state
+	- game based security
+- why useful?
+	- old protocols have no forward secrecy
+- https://ia.cr/2016/221 & https://ia.cr/2016/1013
+
+Why favorite:
+- Created potentially new method of provable security (comparable to forward secrecy)
+- Good analysis of Signal protocol
+
+###Day 3: Quantum Computing at Google
+- Using superconducting qubits
+- Using surface-area error correcting
+- Clifford vs T-gate
+	- T-gates create ancillas used for error correction
+- Current state of the art is 9 qubits
+- There more interesting applications than factoring
+	- Neuroscience
+	- Quantum simulating
+	- Quantum monte carlo
+- D-Wave doing quantuam annealing which is good for certain things
+- Google's goal is quantum supremacy: at the end of the year, QC implementation better than classical implementation. Estimates 49 qubits to do so.
+
+Why favorite:
+- I love quantum stuff
+
+###Day 3: Attacks on Order Revealing Encryption
+- Many working on it including startups
+- Security issues with ORE
+	- easy plaintext recovery via chosen-plaintext attacks
+- ORE
+	- Achieved via iO and multilinear maps [BLRSZZ15]
+	- Intractable protocol PLZ
+- Correlations causes information leakage
+- When entire domain is encrypted, can retrieve info
+- Plaintexts reveal
+	- Attacks on correlated columns are a thing
+- ROPF-secure --> indistinguishable from a random increasing function MSDB
+
+Why favorite:
+- Gave insight into new ways to think about flaws in cryptosystems (correlated columns)
+
+##All Talks
+Check out the full details here.
+
+##Material To Explore
+The area that caught my most attention was whitebox cryptography, especially how it seems to take an engineering approach to the cryptographic question of obfuscation. Whitebox crypto seems to be an excellent combination of reverse engineering and cryptography, and I plan to explore the work in the field and maybe give a try to some of the CHES challenges this year.
+
+The other areas I plan to explore and those I had not heard about before: 
+- SHAKE (extendable output functions from the SHA-3 family)
+- FHMQV-C (Fully Hashed MQV protocol with key confirmation)
+- PAKE (password authenticated key exchange)
+- the covert model of MPC. 
+While the first three acronyms are new to me, they seem to be used in real world symmetric crypto settings. The covert model for MPC is also new to me, so I hope to understand how it differs from the semi-honest model and malicious model.
+
+I plan to continue to understand the different post-quantum crypto techniques, and follow along in the conversation to understand the trade-offs between current candidates. Mostly, the goal is to understand what exactly the requirements are, aside from just "not currently broken with a quantum computer." If there are some complexity-theoretic papers that talk about this material that would be terribly useful.
+
+##Lessons Learned
+Lessons I learned seem to be related to the way cryptography is used in the real world, and how the assumptions differ from the "ideal" world. Particularly, speakers emphasized that server non-collusion is not impossible, *cost* is usually a more important metric over speed, and there are currently no good PKIs for embedded and mobile devices.
+
+I think these lessons are valuable as I do my masters thesis and then my PhD thesis. If I plan to truly transition whatever my research is into a real world project, I'll have to flush out the systems I create to be resilient against real world adversaries.

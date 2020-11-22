@@ -1,0 +1,484 @@
+#Real World Crypto 2017 Details
+
+##Announcements
+- RWC 2018 will be at IBM Zurich and looking for sponsors
+
+##Day 1 Talks
+Day 1 focused on TLS, Internet protocols, quantum devices, post quantum crypto, and embedded crypto
+
+###Software Engineering and OpenSSL is not an Oxymoron
+- Pitfalls and how they recovered
+- First round: SSLeay
+	- Two guys in a garage (Tim & Eric) in Australia
+	- Handful of tests; minimal functionality
+- Next round: OpenSSL
+	- Bigger; export control
+		- Lesson: Stay away from US for Crypto
+	- Source not so good
+	- Developers wanted FIPS validation
+	- Issues
+		- Much indirection in the code
+		- Steep learning curve to contribute
+- Heartbleed happened
+	- OpenSSL Project rejuvenated
+	- New finds
+	- New policies
+	- New code style
+	- Transparency
+
+###Project WycheProof
+- Analyze crypto used in different projects
+- 80+ open source unit tests for 40+ bugs in popular implementations of ECC, RSA, DH, DSA, AEAD
+- Check for timing side-channel and other crypto checks
+- Example of found vulnerabilities:
+	- Key recovery in BouncyCastle DSA by weak entropy source for keygen
+	- BouncyCastle ECDHC key recovery attack by binary search using user controlled order
+- To find out more, sign up to the Google Groups: wycheproof-users@googlegroups.com
+
+###X.509 - It's Worse Than You Think
+- Certificates in the wild from 2010
+	- SHA1 decreases
+	- SHA256 goes up then goes down
+	- MD5 last seen June 2015
+	- TLS use increased by phishing but still small
+	- Phishing: if you have TLS you may not be a target for phishing host
+		- Not considering cloud-hosted phishing websites in measurements
+	- TLS of banks: After heartbleed they got keys resigned, but not new keys.
+- Planned IoT PKI Workshop at Indiana University later in 2017
+
+###Is Crypto Software Safe Yet?
+- JSON Crypto
+	- Flaws in go-jose, a JSON WebToken library in GoLang
+- JSON WebTokens: Errors due to integer overlow to bypass HMAC & Signature checking only checks 1 signature when multiple are present
+- Decryption/Signing verification under attacker control 
+- Attack on OpenSSL GCM Mode using Joux's Forbidden IV Attack
+
+###NSEC 5
+- Automated denial of existence of certain domain names
+- First protocol may allow for zone enumeration
+	- Don't want to reveal all DNS names
+	- NSEC3 hashes name but can lead offline attack
+	- There exists NSEC3 with online signing, but requires DNS server needs to do an online signature
+- Created NSEC 5
+	- Replaces hash function with a verifiable random function (VRF)
+	- First draft: NSEC5-RSA
+	- NSEC5-ECC --> Franklin Zhang 13 is a VRF
+	- Implemented in KnotDNS, UnboundDNS
+- Writing internet draft for review
+
+###NTP Crypto
+- Important but not usually explored
+- Autokey is old method
+- Currently no security
+- Why is NTP Crypto difficult?
+	- Don't want much slowdown
+	- Can't tell if certifications have expired (use NTP to check certificate expiration: chicken and egg problem)
+	- Broadcast mode with TLS doesn't work
+	- Want stateless NTP
+- Different modes have different needs
+	- Used OpenTLS, VanillaTLS
+	- Ignored broadcast mode
+- Roughtime will be an NTP replacement
+
+###Levchin Prize
+- https://Levchinprize.com --> send nominations for RWC2018
+- Joan Daemen
+	- "Block ciphers are the vacuum tube of cryptography, and strong permutations are the future"
+- Moxie Marlinspike and Trevor Perrin 
+	- "I realized I was so close to Mark Zuckerberg I could have killed him. But assisination politics doesn't work well."
+	- "Work on creating systems that scale to billions of people"
+	- "Harsh truth: computers are not primarily for computer people"
+	- "People are the agents of technology"
+	- People claim incorrect assumptions: non-colluding third parties, purely decantrilized systems
+
+###White Box Cryptography
+- Idea: protect crypto when adversary can see everything going on.
+- Host Card Emulation: replace secure elements with hardware (think Apple Pay)
+- Visa & Mastercard support HCE
+- How to protect AES/DES
+	- Hide memory access and execution access
+- Theoretically impossible?
+	- No: Trivial 2^92 TB lookup table for a fixed key
+- Generic idea: transform cipher into a lookup table
+	- Also want binary glued to an environment to prevent running on other systems
+- Look at EuroCrypt 2016 talk: Engineering Code Obfuscation
+- Automated techniques used in CHES Challenge
+- Also, FSE 2016: White-box Cryptography in the Grey Box
+- See 9x4 pattern: AES
+- See 15x1 pattern: DES
+- Idea: Take software tools, use whitebox attacks, or put on hardware and use differential power analysis
+- Tools: https://github.com/SideChannelMarvels/
+- Interesting question: how do you explain moral or philosophical research for white-box?
+	- Answer: It's interesting and there are user level security issues as well
+
+###NIST Post-Quantum
+- Quantum a huge issue
+- NIST has a PQC Group
+	- Monitor progress
+	- Find quantum resistant components for PKE, KA, and Sig
+	- Ensure transparency
+	- pqc-forum@nist.gov
+		- to join: subject=subcribe to pqc-forum-request@nist.gov
+- Have lattice-based, code-based, hash-based, isogeny-based, multivariate
+- Expected issues from current key size and signatures but speed should be okay
+- Industry needs to verify impact
+	- Major discussion revolves around security-levels and parameterization (such as how many quantum gates are required for break schemes)
+- Regarding stateful vs stateless signatures --> both are valid for NIST post-quantum standardization
+
+###CRYSTAL: LatticeCrypto Library
+- Focus on Key Exchange
+- Created Module Lattices meant to be more efficient with similar security
+	- More general than Ring lattices, less structured
+	- Smaller secrets
+	- Classic Regev scheme, but helps send more info
+	- Easier to implement
+- Created Kyber key exchange mechanism
+- Working on Dilithium signature system
+- https://github.com/pq-crystals
+- Used https://openquantumsafe.org project to test
+
+###New Hope & Frodo
+- Ring LWE <= New-Hope
+- RLWE Key agreement:
+	- Public parameters A and group/ring info
+	- Alice chooses a random vector X
+	- Bob chooses a random vector Y
+	- Alice sends AX+E to Bob
+	- Bob sends YA+E' to Alice
+	- Both compute YAX that are approximate to each other based on error
+	- Non-zero prob of failure
+	- Can tune parameters to make the prob of failure small
+- Idea: (A, AX+E, YA+E', msb(YAX)) ~= (A, AX+E, YA+E', random bit)
+- Optimization: use a PRG(seed) to generate A and just send seed
+- Frodo is based off of LWE, NewHope is based off of RLWE
+
+###Isogony Supersingular ECC
+- Elliptic Curves -> Pairings, short keys, etc.
+- SIDH:
+	- we have curves E in an isogony class with isogonies \phi. (E, \phi) -> phi(E)
+	- challenge: given E, find isogony \phi
+	- you share isogony on root values P_A and Q_A
+
+###STROBE Protocol Framework
+- https://strobe.sourceforge.io
+- Simple protocols and handshakes
+	- Encrypt, hash, etc.
+- Real World protocols have many different requirements
+- STROBE can lead to the creation of custom protocols
+- Motivation: take academic approach to protocols
+- Use FHMQV-C Protocol
+- Modern solution: hash all the things!
+- Created STROBE library for embedded devices
+	- Implemented as a duplex sponge construction
+	- Can rekey, hash, MAC, ratchet, encrypt
+	- Acts as a trusted component in embedded devices
+- Did not seem to test on Arduino chips for power consumption (potential power analysis attacks)
+
+###FourQ-based Cryptography for high performance and Low-Power Applications
+- Combined many state-of-the-art tools in elliptic curves to create FourQ:
+	- CM endomorphism
+	- Edwards form
+	- Mersenne prime 2^127-1
+- Optimal 4 way scalar decomposition
+- Created an internet draft
+- The library is quite-performant
+- Embedded it in OpenSSL
+- Tested on many hardware
+- Created schnorr-sigs
+	- SchnorrQ set to release later
+- FourQLib
+
+##Day 2 Talks
+Day 2 focused on MPC, applied crypto and law, key exchange, and passwords and authentication.
+
+###MPC at Google
+- Academic vs practical
+- Academic view:
+	- generic protocols: GC, OT, LSS, FHE
+	- Malicious security model
+- Models in Practice:
+	- semhihonest is okay
+	- can use the law
+	- privacy more important than correctness
+- Covert model: sometimes good enough for B2B
+- Biggest gap: think *cost* not speed
+- Challenges in practice:
+	- non-public ID
+	- no reliable PKI for consumer devices
+	- Party selection
+	- sybil attacks
+	- consumer devices will fail
+	- more important to abort over malicious security
+	- non-colluding providers? not impossible
+- Uses at Google:
+	- B2B:
+		- set intersection functionality
+		- use paillier: easy to explain and implement
+		- need to convince: managers, lawyers, software engineers
+		- audit mechanism into protocol (think covert model)
+	- Consumer:
+		- training machine learning models
+		- keyboards reveal everything folks have typed
+		- need to protect local privacy
+		- Theory: everyone does LSS --> quadratic on devices
+- Want from theory: formalization okay. FHE with small constants
+- Differential privacy on devices in order to prevent leaking keyboard info. 
+- Interesting functions with set intersection
+- Affine functions from Paillier (ax+b; linear functions are just ax)
+
+###Privacy Preserving Neural Networks
+- Neural network use perceptrons
+- Cryptonets: applying neuroal networks to encrypted data
+	- Replaced ReLU with x^2 (close enough)
+	- replaced max pooling with sum pooling
+- They have similar classification accuracy to non-private method
+
+###Issues with E2E Crypto via Facebook
+- Talk about how FB got E2E into Messenger
+- Use signal protocol
+- Not on by default
+- Implemented message franking aka reporting
+- Challenges: 
+	- authentication --> equivalent to TLS green padlock
+	- multidevice
+	- web support --> trusting Javascript crypto
+- Q: Why better?
+	- metadata not protected
+	- wanted to protect content
+	- can they be compelled to give access to storage keys?
+
+###Memories for Your Eyes Only
+- Supposedly snapchat is peer-to-peer?
+- Disappears after "some time" on Snapchat server
+- PAKE
+	- password-protected secret sharing (Jarecki et al)
+	- give and take protocol
+- Future: multiservers; polynomial sharing
+- Used signatures, KDFs, challenge response
+
+###DMCA
+- EFF work
+- Section 1201(c): no circumvention of technical measures to protect copyrighted work
+- Civil or criminal law
+- 1201(b): Talk about or traffic in ways to circumvent is illegal
+	- impacts security researcher the most
+- EFF unintened consequences report
+- Copyright and the US constitution
+	- California didn't see as free speech
+
+###Lightning Talks
+- Linux foundation cor infrastructure initiative
+- ACLU -> Students tech fellowship/internships in Boston, Seattle, NYC
+	- dkg@aclu.org
+- AWS
+	- measure breaking crypto in AWS hours
+	- FPGA EC2 stuff
+	- Amazon is funding formal verification of crypto
+- Galois is hiring math and engineering folks
+- InfosecGlobal -> plug for their company
+- Sharemind -> sdk available at https://sharemind-sdk.github.io
+- Cornell Tech IC3 -> retreat in SF
+- Zooko -> check out ZCash and Tahoe-LAFS which has cool key management
+- MITRE -> help with SWIDTags. Email Dave Morse dmorse@mitre
+- INPHER -> implement crypto "properly"
+- Autocrypt -> Automatic email encryption autocrypt.org
+
+###Message Encryption
+- Key management history
+	- manual ciphers = higher security = harder to use
+	- code blocks = expensive to create
+- Key distribution center 1940s -> onwards
+- 1980s -> symmetric key infrastructure
+- 1990s -> "everyone in the club w/ a PKI!"
+- 2010s -> resurgence of PKIs
+	- Certificate transparency
+	- CONIKS
+	- New systems = Encrypt-then-authenticate
+		- People do encryption first, then think about how to authenticate users
+- Signal
+	- pre-keys and DH-based agreements
+	- symmetric ratcheting
+
+###Formal Analysis of Signal
+- Post compromise security
+	- can achieve this security by sharing state
+	- game based security
+- why useful?
+	- old protocols have no forward secrecy
+- https://ia.cr/2016/221 & https://ia.cr/2016/1013
+
+###0-RTT Key Exchange
+- Used in QUIC and TLS 1.3
+- Issues: replay
+- Puncturable forward-secret encryption
+	- Uses hierarchical IBE and puncturable encryption to get 0-RTT forward secret key-exchange
+
+###5G: Authenticated Key Exchange
+- AKA Protocol in 3G/4G
+	- Client trusted with almost everything
+	- Server untrusted
+	- Operator completly trusted
+- Concern: client privacy
+- Next gen SIM cards will generate randomness
+- AKA protocol --> everything through operator, need to consider end-to-end and peer-to-peer security for 5G
+
+###Passwords
+- SPHINX
+	- A special kind of password manager
+	- Oblivious PRF
+	- Android
+- How do you prtoect secrets?
+	- BJSL 12 --> password protected secret sharing
+- X-PAKE
+	- http://webee.technion.ac.il/~hugo/rwc17.html
+
+###iMHF
+- Data independent memory-hard function
+- Abstract theoretical and combinatorial attacks on iMHFs
+- Depth-robustness
+
+###Memory Hardness of Scrypt
+- Moderately hard hash functions in time and memory
+- Theory:
+	- Practical design
+	- Provable memory-hard
+- Difficult to prove because don't have intution on bounded memory on provable security
+- https://ia.cr/2016/989
+
+###Cloudflare Captcha
+- TOR browser masks signals, so users get CAPTCHA all the time
+- Blind signatures for rate-limiting using Chaumian RSA
+- https://github.com/cloudflare/challenge-bypass-specification
+- Questions: 
+	- What's wrong with RSA? Key management
+	- Audience concerned over cloudflare storing client requests to websites
+
+##Day 3 Talks
+Day 3 was on implementations, TPMs, searching on encrypted data, attacks on TLS, and Blockchain
+
+###Quantum Computing at Google
+- Using superconducting qubits
+- Using surface-area error correcting
+- Clifford vs T-gate
+	- T-gates create ancillas used for error correction
+- Current state of the art is 9 qubits
+- There more interesting applications than factoring
+	- Neuroscience
+	- Quantum simulating
+	- Quantum monte carlo
+- D-Wave doing quantuam annealing which is good for certain things
+- Google's goal is quantum supremacy: at the end of the year, QC implementation better than classical implementation. Estimates 49 qubits to do so.
+
+###Erasing Secrets from RAM
+- Threat Model
+	- Non-malicious program P erasing memory
+	- Attacker has access to everything
+- In practice:
+	- Compiler optimizations may remove zero-memory functions
+	- Register spill -> when run out of registers the machine does pushad then popad later, causing values to be saved for later
+- Taint tracing
+	- OWF remove taints
+	- IO API calls leave traces in memory
+- Need compiler support for reasing stack
+	- Currently compilers are the biggest issue
+	- Can use annotated functions and ersase stack before returning from function
+- Solution: call graph based
+- https://github.com/lmrs2/secretgrind
+
+###Anonymous Attestation and TPM
+- DAA -> direct anonymous attestation
+	- Goal: unforgeable and unlinkable attestation
+- Adding TPM commands is a big deal
+- Security model in UC framework
+	- Game-based security is not strong enough
+	- Simulation based security is impossible
+- TPM has small interface
+
+###DPA Resistance for Real People
+- Differential power analysis for side channels
+	- Do statistical power analysis to compose power runs
+	- Over 10k papers to try different things
+- Issue they encountered: can we fix the problem but no change in implementation
+- Use a key tree to do a lookup on the function
+- Leakage resilient crypto
+- Seems many folks are working on automated sidechannel tests
+- This only works on knowing the types of plaintext a priori
+- Lookup Welch's T-test for DPA
+
+###Attacks on Order Revealing Encryption
+- Many working on it including startups
+- Security issues with ORE
+	- easy plaintext recovery via chosen-plaintext attacks
+- ORE
+	- Achieved via iO and multilinear maps [BLRSZZ15]
+	- Intractable protocol PLZ
+- Correlations causes information leakage
+- When entire domain is encrypted, can retrieve info
+- Plaintexts reveal
+	- Attacks on correlated columns are a thing
+- ROPF-secure --> indistinguishable from a random increasing function MSDB
+
+###Breaking WebApps on Top of Encrypted Data
+- BoPETS --> "building on property preserving encrypted technologies"
+- Attacked Mylar specifically
+	- work on user query distribution
+	- looked at creating a dictionary attack and utilizing metadata
+- Blind Seer
+
+###Building WebApps on Top of Encrypted Data
+- Verena cannot tamper with data and query results
+- Opaque NSDI17
+- Common web framework not compatible with encryption (Django, Ruby)
+	- Mylar certifies keys
+- allow_search can prevent dictionary attacks
+- Verena
+	- protect against active attacks
+	- E2E integrity
+	- Compile integrity policies into a forest of ADSes
+	- Provides proofs
+- Real world crypto-based systems
+
+###PRNG Vuls in the Wild
+- https://github.com/davidmcgrew/joy
+- VM Snapshots are vulnerable -> don't use them
+- Use AES-GCM-SIV
+
+###TLS Issues: Concerto
+- Concerto: inject stimulus
+- Parsifal -> robust binary parsers
+- Looking for TLS inconsistencies
+- Certificate chain explorations
+	- Sometimes unused certs are included
+- Concerto is mostly CSV tables
+- https://github.com/ANSSI-FR/concerto
+
+###Rupture API: Productizing TLS Attacks
+- Adaptive choosing of token in BREACH attack in order to get secrets
+- Framework to perform compression attacks
+
+###Rethinking Internet-Scale Consensus (Did not take notes)
+
+###Privacy in the Ripple Network
+- Privacy of credit networks
+- Formalizes definition of privacy for credit network
+- http://crypsys.mmci.uni-saarland.de/projects/PrivPay/
+- Similar to coinshuffle for bitcoin
+
+###Hyperledger (Did not take notes)
+- Doesn't use pow
+- Other folks are using it
+- Check it out
+
+###Authenticated Dictionaries
+- Ethereum type key-value store/ bitcoin mem-pool
+- Where to store Mempool?
+	- Disk: too slow
+	- RAM: only powerful leading to centralization
+- For ADS, Verifiers need to verify root hash
+- Need to support delete, update, new, rebalance tree
+- Prior work:
+	- Red-Black+ trees
+	- Skip-list
+- This work uses AVL+
+- https://ia.cr/2016/994
+- Part of https://wavesplatform.com
