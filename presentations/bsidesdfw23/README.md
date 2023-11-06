@@ -7,7 +7,7 @@ https://bsidesdfw.com/2023spkr#t31130
 - [Playing Video on iPhone Demo](cve_2022_32939_demo_play_vid.mp4)
 - [Code](https://github.com/h26forge/h26forge)
 
-This talk covers much of the same content as the H26Forge Black Hat 2023, but includes the following changes:
+This talk covers much of the same content as the H26Forge Black Hat 2023 talk, but includes the following changes:
 - Improved explanation of manually modifying bitstreams
 - Discussion around other codec-related in-the-wild exploited vulnerabilities
 - More details around what RLBox is and how it can help protect media playback
