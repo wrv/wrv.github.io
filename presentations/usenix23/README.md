@@ -1,7 +1,7 @@
 # USENIX 2023
 https://www.usenix.org/conference/usenixsecurity23/presentation/vasquez
 
-- [Talk (TBD)](#)
+- [Talk](https://www.youtube.com/watch?v=sm_yKwCAzlw)
 - [Slides](slides.pdf)
 - [Code](https://github.com/h26forge/h26forge)
 
