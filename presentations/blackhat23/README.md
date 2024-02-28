@@ -1,7 +1,7 @@
 # Black Hat 2023
 https://www.blackhat.com/us-23/briefings/schedule/index.html#the-most-dangerous-codec-in-the-world-finding-and-exploiting-vulnerabilities-in-h-decoders-33272
 
-- [Talk (TBD)](#)
+- [Talk](https://www.youtube.com/watch?v=3aZGGPrffew)
 - [Slides](slides.pdf)
 - [Video Generation Demo](cve_2022_32939_demo_vid_generation.mp4)
 - [Playing Video on iPhone Demo](cve_2022_32939_demo_play_vid.mp4)

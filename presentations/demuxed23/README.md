@@ -10,7 +10,7 @@ Description
 > In this talk, we will describe how H26Forge can be used to find issues that may arise in processing User Generated Content so that video engineers can protect their infrastructure. We will also discuss other uses of H26Forge, such as debugging encoded videos or datamoshing.
 
 
-- [Talk (TBD)](#)
+- [Talk](https://www.youtube.com/watch?v=0_dkX1JN9mU)
 - [Slides(PDF)](slides.pdf)
 - [Slides(Google Slides)](https://docs.google.com/presentation/d/1kpdRdhFwtaolvYIuHSWb6aIf8l-j3leU0W_S4njmAtM/edit?usp=sharing)
 - [Code](https://github.com/h26forge/h26forge)
